@@ -29,10 +29,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -67,7 +67,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 
 
-CORS_ALLOW_ALL_ORIGINS = True  # 개발용으로 모든 도메인에서의 요청을 허용
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000', 'http://localhost:8000']
+CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
     {
